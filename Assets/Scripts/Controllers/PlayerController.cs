@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public CommandManager commandManager;
     [HideInInspector] private SceneController sceneController;
 
+    [HideInInspector] private DisplayTextController displayTextController;
+
+
     void Awake()
     {
         locationManager = GetComponent<LocationManager>();
@@ -20,7 +23,9 @@ public class PlayerController : MonoBehaviour
         commandManager = GetComponent<CommandManager>();
 
         GameObject sceneControllerObject = GameObject.FindWithTag("SceneController");
+        GameObject displayTextControllerObject = GameObject.FindWithTag("DisplayTextController");
         sceneController = sceneControllerObject.GetComponent<SceneController>();
+        displayTextController = displayTextControllerObject.GetComponent<DisplayTextController>();
 
         Debug.Log("PlayerController mounted with ref to SceneController");
 
@@ -29,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public void HandleEnterRoom(Location room)
     {
         locationManager.SetCurrentLocation(room);
+        displayTextController.AddText("You entered " + room.name);
         commandManager.AddFromObjects(room.objectsInRoom);
         commandManager.AddFromLocations(room.accessibleLocations);
     }
