@@ -983,10 +983,95 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: room description
-  name: Room2
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 1802452633}
+--- !u!1 &762229799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762229800}
+  - component: {fileID: 762229805}
+  - component: {fileID: 762229804}
+  - component: {fileID: 762229803}
+  - component: {fileID: 762229802}
+  m_Layer: 11
+  m_Name: LocationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &762229800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762229799}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1975384756}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &762229802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762229799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ee613503c6e714d8ae2d3d36b29b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLocation: {fileID: 0}
+--- !u!114 &762229803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762229799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4555a3e8588c6ac4eb6a0e1be3549fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  commandManager: {fileID: 0}
+--- !u!114 &762229804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762229799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b7afba15e38f646bfe74ec3102573b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &762229805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762229799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7faadbab485ac084e9b977c917d54222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &802359970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,9 +1190,9 @@ GameObject:
   m_Component:
   - component: {fileID: 825583114}
   - component: {fileID: 825583113}
-  - component: {fileID: 825583115}
   - component: {fileID: 825583112}
   - component: {fileID: 825583111}
+  - component: {fileID: 825583115}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1237,12 +1322,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 825583110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adcb6b9eb05ab2547957ede0e06ef8bd, type: 3}
+  m_Script: {fileID: 11500000, guid: e646824b6f5f1db4489058a9a7acf9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  speed: 350
-  changeDirectionProbability: 0.93
+  speed: 500
+  changeDirectionProbability: 0.99
   rigidBody: {fileID: 825583111}
 --- !u!1 &867261318
 GameObject:
@@ -1718,8 +1803,8 @@ MonoBehaviour:
   - {fileID: 2083625897}
   - {fileID: 2095698675}
   actors:
-  - {fileID: 825583115}
-  - {fileID: 2099765717}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1179434717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,7 +3297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: room description
-  name: Room1
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 2095698675}
@@ -3397,10 +3481,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: room description
-  name: Room3
   objectsInRoom: []
   accessibleLocations:
-  - {fileID: 1900594442}
+  - {fileID: 1802452633}
 --- !u!1 &1907204387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,6 +3680,7 @@ Transform:
   - {fileID: 2083625895}
   - {fileID: 2095698673}
   - {fileID: 1689807692}
+  - {fileID: 762229800}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3919,7 +4003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: room description
-  name: Room4
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 2095698675}
@@ -3994,7 +4077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: room description
-  name: Hallway
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 1802452633}
@@ -4009,9 +4091,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2099765716}
   - component: {fileID: 2099765715}
-  - component: {fileID: 2099765717}
   - component: {fileID: 2099765714}
   - component: {fileID: 2099765713}
+  - component: {fileID: 2099765717}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -4139,10 +4221,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2099765712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adcb6b9eb05ab2547957ede0e06ef8bd, type: 3}
+  m_Script: {fileID: 11500000, guid: d97232163e303264bb7fd83984e2db7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  speed: 180
+  speed: 300
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 2099765713}

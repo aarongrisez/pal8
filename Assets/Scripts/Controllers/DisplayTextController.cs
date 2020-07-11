@@ -25,9 +25,13 @@ public class DisplayTextController : MonoBehaviour
         displayTextObject.text = textToDisplay;
     }
 
+    public void AddText(string newText)
+    {
+        displayTextManager.AddText(newText);
+    }
+
     public void InputComplete()
     {
-        displayTextManager.InputComplete();
         inputField.ActivateInputField();
         inputField.text = null;
     }
