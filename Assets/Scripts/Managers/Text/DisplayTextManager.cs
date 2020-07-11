@@ -33,11 +33,13 @@ public class DisplayTextManager : MonoBehaviour
             string[] separatedInputWords = userInput.Split(delimiterCharacters);
 
             displayTextController.InputComplete();
+            displayTextController.DisplayText(FormatLog());
         }
     }
 
-    public void InputComplete()
+    public void AddText(string newText)
     {
+        log.Add(newText);
         displayTextController.DisplayText(FormatLog());
     }
 

@@ -6,7 +6,6 @@ public class Location : MonoBehaviour
 {
     [TextArea]
     public string description = "room description";
-    public string name = "name";
     public List<InteractableObject> objectsInRoom = new List<InteractableObject>();
     public List<Location> accessibleLocations = new List<Location>();
 }
