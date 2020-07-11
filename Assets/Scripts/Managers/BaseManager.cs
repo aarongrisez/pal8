@@ -12,6 +12,6 @@ public abstract class BaseManager : MonoBehaviour
         controller = GetComponent<PlayerController>();
     }
 
-    public void ClearAllCollections() {}
+    public virtual void ClearAllCollections() {}
 
 }

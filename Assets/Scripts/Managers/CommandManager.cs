@@ -6,22 +6,25 @@ public class CommandManager : BaseManager
 {
     private List<Command> validCommands = new List<Command>();
 
-    public void PrimeValidCommands(InteractableObject[] objects, Location[] locations)
+    public void AddFromObjects(List<InteractableObject> objects)
     {
         /*
         Called when new room is entered. All interactable objects and accessible locations
         are catalogued for valid commands.
         */
 
-        for (int i = 0; i < objects.Length; i++)
+        for (int i = 0; i < objects.Count; i++)
         {
             for (int j = 0; j < objects[i].commands.Length; j++)
             {
                 validCommands.Add(objects[i].commands[j]);
             }
         }
+    }
 
-        for (int i = 0; i < locations.Length; i++)
+    public void AddFromLocations(List<Location> locations)
+    {
+        for (int i = 0; i < locations.Count; i++)
         {
             //
         }

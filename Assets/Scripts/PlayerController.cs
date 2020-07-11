@@ -23,12 +23,12 @@ public class PlayerController : MonoBehaviour
     void HandleEnterRoom(Location room)
     {
         locationManager.SetCurrentLocation(room);
-        commandManager.PrimeValidCommands();
+        commandManager.AddFromObjects(room.objectsInRoom);
+        commandManager.AddFromLocations(room.accessibleLocations);
     }
 
     void HandleExitRoom()
     {
-        locationManager.ClearAllCollections();
         commandManager.ClearAllCollections();
     }
 

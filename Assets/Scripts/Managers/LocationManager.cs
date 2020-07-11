@@ -17,9 +17,4 @@ public class LocationManager : BaseManager
         currentLocation = location;
     }
 
-    public override void ClearAllCollections()
-    {
-        accessibleLocations.Clear();
-    }
-
 }
