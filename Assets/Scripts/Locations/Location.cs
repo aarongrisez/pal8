@@ -2,16 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Directions
-{
-    Up,
-    Down,
-    Left,
-    Right,
-}
-
-[CreateAssetMenu(menuName = "TextEngine/Location")]
-public class Location : ScriptableObject 
+public class Location : MonoBehaviour 
 {
     [TextArea]
     public string description = "room description";

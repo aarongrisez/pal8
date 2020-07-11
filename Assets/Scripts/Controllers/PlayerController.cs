@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 // Entrypoint component on a Player object    
 [RequireComponent(typeof(LocationManager))]
@@ -12,15 +11,22 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public LocationManager locationManager;
     [HideInInspector] public InventoryManager inventoryManager;
     [HideInInspector] public CommandManager commandManager;
+    [HideInInspector] private SceneController sceneController;
 
     void Awake()
     {
         locationManager = GetComponent<LocationManager>();
         inventoryManager = GetComponent<InventoryManager>();
         commandManager = GetComponent<CommandManager>();
+
+        GameObject sceneControllerObject = GameObject.FindWithTag("SceneController");
+        sceneController = sceneControllerObject.GetComponent<SceneController>();
+
+        Debug.Log("PlayerController mounted with ref to SceneController");
+
     }
 
-    void HandleEnterRoom(Location room)
+    public void HandleEnterRoom(Location room)
     {
         locationManager.SetCurrentLocation(room);
         commandManager.AddFromObjects(room.objectsInRoom);
