@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TextEngine/Room")]
+public enum Directions
+{
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+[CreateAssetMenu(menuName = "TextEngine/Location")]
 public class Location : ScriptableObject 
 {
     [TextArea]
-    public string description;
-    public string keyString;
+    public string description = "room description";
+    public string name = "name";
+    public List<InteractableObject> objectsInRoom = new List<InteractableObject>();
+    public List<Location> accessibleLocations = new List<Location>();
 }

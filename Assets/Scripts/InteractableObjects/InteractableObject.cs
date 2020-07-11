@@ -9,5 +9,4 @@ public class InteractableObject : ScriptableObject
     [TextArea]
     public string description = "Description in Room";
     public Command[] commands;
-
 }
