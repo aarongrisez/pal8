@@ -32,4 +32,14 @@ public class PlayerController : MonoBehaviour
         commandManager.ClearAllCollections();
     }
 
+    void HandleTakeItem(InteractableObject item)
+    {
+        inventoryManager.AddItem(item);
+    }
+
+    void HandleUseItem(InteractableObject item)
+    {
+        inventoryManager.RemoveItem(item);
+    }
+
 }
