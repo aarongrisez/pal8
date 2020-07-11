@@ -5,7 +5,7 @@ using UnityEngine;
 // Maintains current state and state transitions of player location
 public class LocationManager : BaseManager 
 {
-    private Location currentLocation;
+    public Location currentLocation;
 
     public Location GetCurrentLocation()
     {
