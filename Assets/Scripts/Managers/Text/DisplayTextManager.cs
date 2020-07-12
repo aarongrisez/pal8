@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,10 @@ public class DisplayTextManager : MonoBehaviour
         playerController = playerControllerObject.GetComponent<PlayerController>();
     }
 
+    private void RejectInput(string input){
+        log.Add("Unrecognized Input: " + input);
+    }
+
     public void AcceptStringInput(string userInput)
     {
         if (userInput != "")
@@ -31,6 +36,39 @@ public class DisplayTextManager : MonoBehaviour
 
             char[] delimiterCharacters = { ' ' };
             string[] separatedInputWords = userInput.Split(delimiterCharacters);
+            switch(separatedInputWords[0]){
+                case "move":
+                    switch(separatedInputWords.Length){
+                        case 2:
+                            Direction dir;
+                            if(Enum.TryParse(typeof(Direction), separatedInputWords[1], true, out dir)){
+                                playerController.HandleMove(dir);
+                            } else {
+                                RejectInput("Bad Direction " + separatedInputWords[1]);
+                            }
+                            break;
+                        default:
+                            RejectInput(userInput + " (Move takes exactly one parameter)");
+                            break;
+                    }
+                    break;
+                case "look":
+                    switch(separatedInputWords.Length){
+                        case 1: 
+                            log.Add(playerController.locationManager.currentLocation.description);
+                            break;
+                        case 2:
+                            var item = separatedInputWords[1];
+                            var itemMatch = playerController.inventoryManager.GetObjectInInventoryByName(item) ??
+                                            playerController.locationManager.GetObjectInRoomByName(item);
+                            log.Add("You look at the " + itemMatch.noun);
+                            log.Add(itemMatch.description);
+                            break;
+                    }
+                    break;
+                case "use": RejectInput("Use not implemented"); break;
+                default: RejectInput(userInput); break;
+            }
 
             displayTextController.InputComplete();
             displayTextController.DisplayText(FormatLog());
