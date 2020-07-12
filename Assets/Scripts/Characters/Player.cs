@@ -37,28 +37,36 @@ public class Player : Actor
         rigidBody.velocity = new Vector2(vX, vY);
     }
 
-    public void SetMovementPosX()
+    public int SetMovementPosX()
     {
         dirX = (float)1.0;
-        xStepsRemaining += rand.Next(randMotionMin, randMotionMax);
+        var move = rand.Next(randMotionMin, randMotionMax);
+        xStepsRemaining += move;
+        return move;
     }
 
-    public void SetMovementNegX()
+    public int SetMovementNegX()
     {
         dirX = (float)(-1.0);
-        xStepsRemaining += rand.Next(randMotionMin, randMotionMax);
+        var move = rand.Next(randMotionMin, randMotionMax);
+        xStepsRemaining += move;
+        return move;
     }
 
-    public void SetMovementPosY()
+    public int SetMovementPosY()
     {
         dirY = (float)1.0;
-        yStepsRemaining += rand.Next(randMotionMin, randMotionMax);
+        var move = rand.Next(randMotionMin, randMotionMax);
+        yStepsRemaining += move;
+        return move;
     }
 
-    public void SetMovementNegY()
+    public int SetMovementNegY()
     {
         dirY = (float)(-1.0);
-        yStepsRemaining += rand.Next(randMotionMin, randMotionMax);
+        var move = rand.Next(randMotionMin, randMotionMax);
+        yStepsRemaining += move;
+        return move;
     }
 
     public override void HandleEnterRoom(string roomName)
