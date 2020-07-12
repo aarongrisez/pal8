@@ -1362,11 +1362,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  speed: 20
+  speed: 500
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 825583111}
-  randMotionMax: 14
-  randMotionMin: 8
+  randMotionMax: 80
+  randMotionMin: 48
 --- !u!1 &867261318
 GameObject:
   m_ObjectHideFlags: 0
