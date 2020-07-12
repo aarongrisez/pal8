@@ -39,7 +39,8 @@ public class DisplayTextManager : MonoBehaviour
                         case 2:
                             Direction dir;
                             if(Enum.TryParse<Direction>(separatedInputWords[1], true, out dir)){
-                                playerController.HandleMove(dir);
+                                int distance = playerController.HandleMove(dir);
+                                log.Add("You moved " + separatedInputWords[1] + " " + distance + " " + "space" + (distance == 1 ? "" : "s"));
                             } else {
                                 RejectInput("Bad Direction " + separatedInputWords[1]);
                             }
