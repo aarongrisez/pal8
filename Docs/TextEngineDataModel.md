@@ -10,9 +10,9 @@
 
 Subclasses:
  - PotionBase
-    All potion recipes require a base. The base can have multiple effects.
+    All potion recipes require a base. The base can have multiple bonuses.
  - PotionReagent
-    All potion recipes require at least 2 reagents. Each reagent can have multiple effects
+    All potion recipes require at least 2 reagents. Each reagent can have multiple effects. Each reagent has a strength
  - PotionEffect 
     Potential in-game effect of potions with this effect. Effects are cumulative in a recipe.
  - Flask
