@@ -25,7 +25,7 @@ public class EtteTextManager : MonoBehaviour
     private int numPlayerCommands = 0;
     private int nextStatementNumberOfCommands = 5;
     private int currentIndex = 0;
-    private int indexToLoseMotion = 6;
+    private int indexToLoseMotion = 7;
     protected System.Random rand = new System.Random();
 
     void Awake()
@@ -51,11 +51,12 @@ public class EtteTextManager : MonoBehaviour
             if (currentIndex < statements.Length)
             {
                 AddText();
-                nextStatementNumberOfCommands += rand.Next(4, 7);
+                nextStatementNumberOfCommands += rand.Next(6, 8);
                 Debug.Log("Next Ette statement will occur at " + nextStatementNumberOfCommands + " player commands");
             }
             if (currentIndex == indexToLoseMotion)
             {
+                nextStatementNumberOfCommands += 3;
                 playerController.RemoveDownAndLeftMovement();
             }
             if (currentIndex == statements.Length)

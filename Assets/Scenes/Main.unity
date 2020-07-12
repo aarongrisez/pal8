@@ -1362,11 +1362,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  speed: 1000
+  speed: 20
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 825583111}
-  randMotionMax: 48
-  randMotionMin: 24
+  randMotionMax: 14
+  randMotionMin: 8
 --- !u!1 &867261318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,7 +4154,7 @@ GameObject:
   - component: {fileID: 2095698675}
   - component: {fileID: 2095698674}
   m_Layer: 11
-  m_Name: Hallway
+  m_Name: the Hallway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
