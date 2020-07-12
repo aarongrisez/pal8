@@ -9,6 +9,7 @@ public class DisplayTextManager : MonoBehaviour
 
     [HideInInspector] private DisplayTextController displayTextController;
     [HideInInspector] private PlayerController playerController;
+    [HideInInspector] private EtteTextController etteTextController;
 
     private List<string> log = new List<string>();
 
@@ -16,8 +17,10 @@ public class DisplayTextManager : MonoBehaviour
     {
         GameObject displayTextControllerObject = GameObject.FindWithTag("DisplayTextController");
         GameObject playerControllerObject = GameObject.FindWithTag("PlayerController");
+        GameObject etteTextControllerObject = GameObject.FindWithTag("EtteTextController");
         displayTextController = displayTextControllerObject.GetComponent<DisplayTextController>();
         playerController = playerControllerObject.GetComponent<PlayerController>();
+        etteTextController = etteTextControllerObject.GetComponent<EtteTextController>();
     }
 
     private void RejectInput(string input){
@@ -60,6 +63,10 @@ public class DisplayTextManager : MonoBehaviour
                             break;
                         case 2:
                             var item = separatedInputWords[1];
+                            if (item == "inventory")
+                            {
+                                log.Add("The devs didn't have time to implement an inventory.");
+                            }
                             var itemMatch = playerController.locationManager.GetObjectInRoomByName(item);
                             if (itemMatch != null)
                             {
@@ -109,9 +116,11 @@ public class DisplayTextManager : MonoBehaviour
                         RejectInput(userInput); break;
                     }
                 case "use": RejectInput("Use not implemented"); break;
+                case "inventory": RejectInput("The devs didn't have time to implement an inventory"); break;
                 default: RejectInput(userInput); break;
             }
 
+            etteTextController.HandlePlayerCommand();
             displayTextController.InputComplete();
             displayTextController.DisplayText(FormatLog());
         }
@@ -125,7 +134,7 @@ public class DisplayTextManager : MonoBehaviour
 
     public string FormatLog()
     {
-        return string.Join("\n", log.ToArray());
+        return string.Join("\n\n", log.ToArray());
     }
 
 }
