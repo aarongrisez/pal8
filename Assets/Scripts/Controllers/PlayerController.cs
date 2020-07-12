@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 30;
         locationManager = GetComponent<LocationManager>();
         inventoryManager = GetComponent<InventoryManager>();
         commandManager = GetComponent<CommandManager>();

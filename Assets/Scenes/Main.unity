@@ -1367,8 +1367,8 @@ MonoBehaviour:
   speed: 500
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 825583111}
-  randMotionMax: 80
-  randMotionMin: 48
+  randMotionMax: 20
+  randMotionMin: 8
 --- !u!1 &867261318
 GameObject:
   m_ObjectHideFlags: 0
