@@ -79,8 +79,43 @@ public class DisplayTextManager : MonoBehaviour
                     switch(separatedInputWords.Length){
                         case 2:
                         // Use on self
+                        break;
                         case 3:
                         // Use on something
+                        break;
+                        case 5: 
+                        // Mix a potion
+                        var potionBase = playerController.inventoryManager.GetObjectInInventoryByName(separatedInputWords[1]);
+                        if(potionBase == null || !(potionBase is PotionBase)){
+                            RejectInput(separatedInputWords[1] + " does not exist or is not a valid potion base");
+                            break;
+                        }
+                        var reagent1 = playerController.inventoryManager.GetObjectInInventoryByName(separatedInputWords[2]);
+                        if(reagent1 == null || !(reagent1 is PotionReagent)){
+                            RejectInput(separatedInputWords[2] + " does not exist or is not a valid potion reagent");
+                            break;
+                        }
+                        var reagent2 = playerController.inventoryManager.GetObjectInInventoryByName(separatedInputWords[3]);
+                        if(reagent2 == null || !(reagent2 is PotionReagent)){
+                            RejectInput(separatedInputWords[3] + " does not exist or is not a valid potion reagent");
+                            break;
+                        }
+                        var flask = playerController.inventoryManager.GetObjectInInventoryByName(separatedInputWords[4]);
+                        if(flask == null || !(flask is Flask)){
+                            RejectInput(separatedInputWords[3] + " does not exist or is not a valid vial");
+                            break;
+                        }
+                        String result = null;
+                        Potion p = Potion.MakePotion(
+                            (PotionBase)potionBase,
+                            (PotionReagent)reagent1,
+                            (PotionReagent)reagent2,
+                            (Flask)flask,
+                            out result);
+                        playerController.inventoryManager.RemoveItem(flask);
+                        playerController.inventoryManager.AddItem(p);
+                        log.Add(result);
+                        break;
                         default: break;
                     }
                     break;
