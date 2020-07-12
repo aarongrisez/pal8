@@ -70,7 +70,20 @@ public class DisplayTextManager : MonoBehaviour
                             break;
                     }
                     break;
-                case "use": RejectInput("Use not implemented"); break;
+                case "use":
+                    var thing = playerController.inventoryManager.GetObjectInInventoryByName(separatedInputWords[0]);
+                    if(thing == null){
+                        RejectInput("You do not have a " + separatedInputWords[0] + " to use");
+                        break;
+                    }
+                    switch(separatedInputWords.Length){
+                        case 2:
+                        // Use on self
+                        case 3:
+                        // Use on something
+                        default: break;
+                    }
+                    break;
                 default: RejectInput(userInput); break;
             }
 
