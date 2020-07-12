@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,19 +8,20 @@ public class DisplayTextManager : MonoBehaviour
 {
 
     [HideInInspector] private DisplayTextController displayTextController;
-    [HideInInspector] private SceneController sceneController;
     [HideInInspector] private PlayerController playerController;
 
     private List<string> log = new List<string>();
 
     void Awake()
     {
-        GameObject sceneControllerObject = GameObject.FindWithTag("SceneController");
         GameObject displayTextControllerObject = GameObject.FindWithTag("DisplayTextController");
         GameObject playerControllerObject = GameObject.FindWithTag("PlayerController");
-        sceneController = sceneControllerObject.GetComponent<SceneController>();
         displayTextController = displayTextControllerObject.GetComponent<DisplayTextController>();
         playerController = playerControllerObject.GetComponent<PlayerController>();
+    }
+
+    private void RejectInput(string input){
+        log.Add("Unrecognized Input: " + input);
     }
 
     public void AcceptStringInput(string userInput)
@@ -31,6 +33,43 @@ public class DisplayTextManager : MonoBehaviour
 
             char[] delimiterCharacters = { ' ' };
             string[] separatedInputWords = userInput.Split(delimiterCharacters);
+            switch(separatedInputWords[0]){
+                case "move":
+                    switch(separatedInputWords.Length){
+                        case 2:
+                            Direction dir;
+                            if(Enum.TryParse<Direction>(separatedInputWords[1], true, out dir)){
+                                playerController.HandleMove(dir);
+                            } else {
+                                RejectInput("Bad Direction " + separatedInputWords[1]);
+                            }
+                            break;
+                        default:
+                            RejectInput(userInput + " (Move takes exactly one parameter)");
+                            break;
+                    }
+                    break;
+                case "look":
+                    switch(separatedInputWords.Length){
+                        case 1: 
+                            log.Add(playerController.locationManager.currentLocation.description);
+                            log.Add("You can see the following items");
+                            log.Add(playerController.locationManager.ReportObjectsInRoom());
+                            log.Add("You can go to these locations");
+                            log.Add(playerController.locationManager.ReportAccessibleLocations());
+                            break;
+                        case 2:
+                            var item = separatedInputWords[1];
+                            var itemMatch = playerController.inventoryManager.GetObjectInInventoryByName(item) ??
+                                            playerController.locationManager.GetObjectInRoomByName(item);
+                            log.Add("You look at the " + itemMatch.noun);
+                            log.Add(itemMatch.description);
+                            break;
+                    }
+                    break;
+                case "use": RejectInput("Use not implemented"); break;
+                default: RejectInput(userInput); break;
+            }
 
             displayTextController.InputComplete();
             displayTextController.DisplayText(FormatLog());

@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public LocationManager locationManager;
     [HideInInspector] public InventoryManager inventoryManager;
     [HideInInspector] public CommandManager commandManager;
-    [HideInInspector] private SceneController sceneController;
 
     [HideInInspector] private DisplayTextController displayTextController;
 
@@ -32,9 +31,7 @@ public class PlayerController : MonoBehaviour
         inventoryManager = GetComponent<InventoryManager>();
         commandManager = GetComponent<CommandManager>();
 
-        GameObject sceneControllerObject = GameObject.FindWithTag("SceneController");
         GameObject displayTextControllerObject = GameObject.FindWithTag("DisplayTextController");
-        sceneController = sceneControllerObject.GetComponent<SceneController>();
         displayTextController = displayTextControllerObject.GetComponent<DisplayTextController>();
 
         Debug.Log("PlayerController mounted with ref to SceneController");
