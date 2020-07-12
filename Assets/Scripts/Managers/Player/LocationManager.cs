@@ -53,7 +53,7 @@ public class LocationManager : BaseManager
     {
         for (int i = 0; i < currentLocation.objectsInRoom.Count; i++)
         {
-            if (name == currentLocation.objectsInRoom[i].name)
+            if (name == currentLocation.objectsInRoom[i].noun)
             {
                 return currentLocation.objectsInRoom[i];
             }

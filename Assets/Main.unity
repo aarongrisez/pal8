@@ -121,6 +121,100 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9549761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9549762}
+  - component: {fileID: 9549763}
+  m_Layer: 11
+  m_Name: Pouch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9549762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9549761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1900594440}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9549763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9549761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: pouch
+  description: Inside of the pouch is a fine, white powder. You don't think it would
+    be a good idea to smell or taste.
+  commands: []
+--- !u!1 &62716670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62716671}
+  - component: {fileID: 62716672}
+  m_Layer: 11
+  m_Name: Desk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &62716671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62716670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1900594440}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &62716672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62716670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: desk
+  description: It's an exceedingly desk-like desk. Four legs. A flat top. Perfect
+    for writing on, if only there were some writing tool around...
+  commands: []
 --- !u!1 &141641607
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,7 +1018,7 @@ GameObject:
   - component: {fileID: 731640913}
   - component: {fileID: 731640912}
   m_Layer: 11
-  m_Name: Room2
+  m_Name: the Wet Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -982,7 +1076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7c83cf23959fe4b9cebcf76e007400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: room description
+  description: Dank air is wafting through a small hole in the wall, but you can't
+    see anything through the opening. The floor here is ever so slightly damp.
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 1802452633}
@@ -1327,11 +1422,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  speed: 500
+  speed: 1000
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 825583111}
-  randMotionMax: 14
-  randMotionMin: 8
+  randMotionMax: 48
+  randMotionMin: 24
 --- !u!1 &867261318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1730,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &979476106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979476107}
+  - component: {fileID: 979476108}
+  m_Layer: 11
+  m_Name: Stool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &979476107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979476106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1900594440}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &979476108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979476106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: stool
+  description: It doesn't look very comfortable
+  commands: []
 --- !u!1 &1023575406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,62 +1884,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1109788033
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1109788035}
-  - component: {fileID: 1109788036}
-  - component: {fileID: 1109788034}
-  m_Layer: 0
-  m_Name: SceneController
-  m_TagString: SceneController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1109788034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109788033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1749e7fc297376b4ba448aa2a71b8553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1109788035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109788033}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 578.6794, y: 388.56552, z: -1297.625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1109788036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109788033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb826c1bcada34a45bd58befc8dbe083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1179434717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,7 +3284,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   rows: 2
   cols: 2
-  cellSize: {x: 644.5, y: 362.5}
+  cellSize: {x: 619, y: 348}
 --- !u!1 &1778888015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,7 +3411,7 @@ GameObject:
   - component: {fileID: 1802452633}
   - component: {fileID: 1802452632}
   m_Layer: 11
-  m_Name: Room1
+  m_Name: the Antechamber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3384,7 +3469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7c83cf23959fe4b9cebcf76e007400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: room description
+  description: You are in the corner of a small room. The walls are all stone but
+    the floor and ceiling are just exposed dirt. There are doors to the south, east,
+    and west.
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 2095698675}
@@ -3510,7 +3597,7 @@ GameObject:
   - component: {fileID: 1900594442}
   - component: {fileID: 1900594441}
   m_Layer: 11
-  m_Name: Room3
+  m_Name: the Office
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3526,7 +3613,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.97, y: -82.49, z: 0}
   m_LocalScale: {x: 1.5375, y: 1.5501, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 62716671}
+  - {fileID: 979476107}
+  - {fileID: 9549762}
   m_Father: {fileID: 1975384756}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3568,8 +3658,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7c83cf23959fe4b9cebcf76e007400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: room description
-  objectsInRoom: []
+  description: This room seems like it was someone's office; there's a steel desk
+    and a rusted stool behind it.
+  objectsInRoom:
+  - {fileID: 62716672}
+  - {fileID: 979476108}
+  - {fileID: 9549763}
   accessibleLocations:
   - {fileID: 1802452633}
 --- !u!1 &1907204387
@@ -4032,7 +4126,7 @@ GameObject:
   - component: {fileID: 2083625897}
   - component: {fileID: 2083625896}
   m_Layer: 11
-  m_Name: Room4
+  m_Name: the Quarters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4090,7 +4184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7c83cf23959fe4b9cebcf76e007400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: room description
+  description: This room is bigger than the others. There's a locked door to the
+    east.
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 2095698675}
@@ -4164,7 +4259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7c83cf23959fe4b9cebcf76e007400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: room description
+  description: The hallway is very dark. You can't see anything to the south, but
+    you hear movement from that direction.
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 1802452633}

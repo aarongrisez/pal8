@@ -60,10 +60,16 @@ public class DisplayTextManager : MonoBehaviour
                             break;
                         case 2:
                             var item = separatedInputWords[1];
-                            var itemMatch = playerController.inventoryManager.GetObjectInInventoryByName(item) ??
-                                            playerController.locationManager.GetObjectInRoomByName(item);
-                            log.Add("You look at the " + itemMatch.noun);
-                            log.Add(itemMatch.description);
+                            var itemMatch = playerController.locationManager.GetObjectInRoomByName(item);
+                            if (itemMatch != null)
+                            {
+                                log.Add("You look at the " + itemMatch.noun);
+                                log.Add(itemMatch.description);
+                            }
+                            else 
+                            {
+                                log.Add(item + " isn't in the room or in your inventory");
+                            }
                             break;
                     }
                     break;

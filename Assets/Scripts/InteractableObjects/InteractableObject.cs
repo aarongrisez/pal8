@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TextEngine/Interactable Object")]
-public class InteractableObject : ScriptableObject
+public class InteractableObject : MonoBehaviour 
 {
     public string noun = "Name";
     [TextArea]
