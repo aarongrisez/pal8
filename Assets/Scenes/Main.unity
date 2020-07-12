@@ -974,6 +974,7 @@ Transform:
   m_LocalScale: {x: 1.5375, y: 1.6082288, z: 1}
   m_Children:
   - {fileID: 617356424}
+  - {fileID: 1334758995}
   m_Father: {fileID: 1975384756}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1019,6 +1020,7 @@ MonoBehaviour:
     see anything through the opening. The floor here is ever so slightly damp.
   objectsInRoom:
   - {fileID: 617356425}
+  - {fileID: 1334758996}
   accessibleLocations:
   - {fileID: 1802452633}
 --- !u!1 &762229799
@@ -2362,6 +2364,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320410135}
   m_CullTransparentMesh: 0
+--- !u!1 &1334758994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334758995}
+  - component: {fileID: 1334758996}
+  m_Layer: 11
+  m_Name: HoleInTheWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334758995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334758994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 731640911}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334758996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334758994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: hole
+  description: You can't see anything through the hole in the wall. Maybe there's
+    another way to get to the chamber beyond it?
+  commands: []
 --- !u!1 &1351205348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,6 +3245,53 @@ MonoBehaviour:
   rows: 2
   cols: 2
   cellSize: {x: 619, y: 348}
+--- !u!1 &1778149446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778149447}
+  - component: {fileID: 1778149448}
+  m_Layer: 11
+  m_Name: Bed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1778149447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2083625895}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778149448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: bed
+  description: It looks like someone was sleeping in here when you woke up... I wonder
+    where they went...?
+  commands: []
 --- !u!1 &1778888015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,7 +3434,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 46.11, y: -52.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2109779946}
   m_Father: {fileID: 1975384756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3383,7 +3480,8 @@ MonoBehaviour:
   description: You are in the corner of a small room. The walls are all stone but
     the floor and ceiling are just exposed dirt. There are doors to the right, left.
     There's a hallway if you go down.
-  objectsInRoom: []
+  objectsInRoom:
+  - {fileID: 2109779947}
   accessibleLocations:
   - {fileID: 2095698675}
   - {fileID: 731640913}
@@ -4101,6 +4199,7 @@ Transform:
   m_LocalScale: {x: 1.9603125, y: 1.0414295, z: 1}
   m_Children:
   - {fileID: 2074137734}
+  - {fileID: 1778149447}
   m_Father: {fileID: 1975384756}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4371,3 +4470,50 @@ MonoBehaviour:
   speed: 300
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 2099765713}
+--- !u!1 &2109779945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2109779946}
+  - component: {fileID: 2109779947}
+  m_Layer: 11
+  m_Name: Vial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2109779946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109779945}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20.080002, y: -11.189999, z: 0}
+  m_LocalScale: {x: 1.5375, y: 1.6082289, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1802452631}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109779947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109779945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: vial
+  description: It's filled with a viscous liquid, maybe oil? It could be useful for
+    concocting potions...
+  commands: []
