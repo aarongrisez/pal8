@@ -1045,6 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4555a3e8588c6ac4eb6a0e1be3549fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   locationManager: {fileID: 0}
   inventoryManager: {fileID: 0}
   commandManager: {fileID: 0}
@@ -1374,6 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4555a3e8588c6ac4eb6a0e1be3549fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 825583115}
   locationManager: {fileID: 0}
   inventoryManager: {fileID: 0}
   commandManager: {fileID: 0}
