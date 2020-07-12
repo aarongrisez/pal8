@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public LocationManager locationManager;
     [HideInInspector] public InventoryManager inventoryManager;
     [HideInInspector] public CommandManager commandManager;
-    [HideInInspector] private SceneController sceneController;
 
     [HideInInspector] private DisplayTextController displayTextController;
 
@@ -32,9 +31,7 @@ public class PlayerController : MonoBehaviour
         inventoryManager = GetComponent<InventoryManager>();
         commandManager = GetComponent<CommandManager>();
 
-        GameObject sceneControllerObject = GameObject.FindWithTag("SceneController");
         GameObject displayTextControllerObject = GameObject.FindWithTag("DisplayTextController");
-        sceneController = sceneControllerObject.GetComponent<SceneController>();
         displayTextController = displayTextControllerObject.GetComponent<DisplayTextController>();
 
         Debug.Log("PlayerController mounted with ref to SceneController");
@@ -64,33 +61,34 @@ public class PlayerController : MonoBehaviour
         inventoryManager.RemoveItem(item);
     }
 
-    public void HandleMove(Direction dir)
+    public int HandleMove(Direction dir)
     {
         switch(dir)
         {
             case Direction.Right:
             {
-                player.SetMovementPosX();
                 Debug.Log("Moving Right");
-                break;
+                return player.SetMovementPosX();
             }
             case Direction.Left:
             {
-                player.SetMovementNegX();
                 Debug.Log("Moving Left");
-                break;
+                return player.SetMovementNegX();
             }
             case Direction.Up:
             {
-                player.SetMovementPosY();
                 Debug.Log("Moving Up");
-                break;
+                return player.SetMovementPosY();
             }
             case Direction.Down:
             {
-                player.SetMovementNegY();
                 Debug.Log("Moving Down");
-                break;
+                return player.SetMovementNegY();
+            }
+            default:
+            {
+                // TODO: Have Ette call the player out for being a hacker
+                return 0;
             }
         }
     }
