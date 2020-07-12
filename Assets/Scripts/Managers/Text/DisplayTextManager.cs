@@ -1,4 +1,5 @@
-﻿ using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,9 +36,22 @@ public class DisplayTextManager : MonoBehaviour
 
             char[] delimiterCharacters = { ' ' };
             string[] separatedInputWords = userInput.Split(delimiterCharacters);
-
             switch(separatedInputWords[0]){
-                case "move": RejectInput("Move not implemented"); break;
+                case "move":
+                    switch(separatedInputWords.Length){
+                        case 2:
+                            Direction dir;
+                            if(Enum.TryParse(typeof(Direction), separatedInputWords[1], true, out dir)){
+                                playerController.HandleMove(dir);
+                            } else {
+                                RejectInput("Bad Direction " + separatedInputWords[1]);
+                            }
+                            break;
+                        default:
+                            RejectInput(userInput + " (Move takes exactly one parameter)");
+                            break;
+                    }
+                    break;
                 case "look":
                     switch(separatedInputWords.Length){
                         case 1: 
