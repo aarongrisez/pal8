@@ -12,8 +12,9 @@ public class EtteTextManager : MonoBehaviour
 
     private List<string> log = new List<string>();
     private string[] statements = new string[] {
-        "Hi! My Name is Ette, and I'm here to help you through this dungeon.",
+        "You're getting the hang of it :D Pretty soon, you'll feel completely in control of your situation!",
         "It looks like you're trying to make a potion. You might want to take a look around for some REAGENTS.",
+        "Did you find any REAGENTS? I don't see any in your INVENTORY.", 
         "Are you even trying to make progress here?",
         "Clearly you're doing something wrong, because the I'm sure the devs had time to implement an INVENTORY which you are now neglecting.",
         "Ok. Now it's just obvious you're trying to be cheeky. Any reasonable person would have collected AT LEAST 1 REAGENT by now.",
@@ -25,7 +26,7 @@ public class EtteTextManager : MonoBehaviour
     private int numPlayerCommands = 0;
     private int nextStatementNumberOfCommands = 5;
     private int currentIndex = 0;
-    private int indexToLoseMotion = 7;
+    private int indexToLoseMotion = 8;
     protected System.Random rand = new System.Random();
 
     void Awake()
@@ -69,6 +70,11 @@ public class EtteTextManager : MonoBehaviour
     public string FormatLog()
     {
         return string.Join("\n\n", log.ToArray());
+    }
+
+    public void DecreasePatience()
+    {
+        nextStatementNumberOfCommands = numPlayerCommands + 1;
     }
 
 }

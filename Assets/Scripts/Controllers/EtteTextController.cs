@@ -32,4 +32,10 @@ public class EtteTextController : MonoBehaviour
         etteTextManager.HandlePlayerCommand();
     }
 
+    public void DecreasePatience()
+    {
+        // On invalid inputs, reduce the time between Ette statements
+        etteTextManager.DecreasePatience();
+    }
+
 }

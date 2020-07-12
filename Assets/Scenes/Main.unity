@@ -2161,7 +2161,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'Hi! My Name is Ette, and I''m here to help you through this dungeon. I''m
+    programmed to respond to commands you type. Go ahead and try a few, like "move
+    up".
+
+
+    "look" can tell you about the room you''re in, and "look [item]" will
+    tell you about items in that room. Isn''t that cool?!'
 --- !u!222 &1232374599
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3375,8 +3381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: You are in the corner of a small room. The walls are all stone but
-    the floor and ceiling are just exposed dirt. There are doors to the south, east,
-    and west.
+    the floor and ceiling are just exposed dirt. There are doors to the right, left.
+    There's a hallway if you go down.
   objectsInRoom: []
   accessibleLocations:
   - {fileID: 2095698675}

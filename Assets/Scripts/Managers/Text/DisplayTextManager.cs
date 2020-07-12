@@ -24,6 +24,7 @@ public class DisplayTextManager : MonoBehaviour
     }
 
     private void RejectInput(string input){
+        etteTextController.DecreasePatience();
         log.Add("Unrecognized Input: " + input);
     }
 
