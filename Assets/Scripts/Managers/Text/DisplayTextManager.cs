@@ -73,6 +73,41 @@ public class DisplayTextManager : MonoBehaviour
                             break;
                     }
                     break;
+                case "smell":
+                    {
+                        if (playerController.locationManager.currentLocation.name == "the Office")
+                        {
+                            if (separatedInputWords[1] == "pouch")
+                            {
+                                log.Add("Against your better judgement, you smell the pouch. It smells like leather.");
+                                break;
+                            }
+                            else if (separatedInputWords[1] == "powder")
+                            {
+                                log.Add("Against your better judgement, you smell the powder. It makes you sneeze.");
+                                break;
+                            }
+                        }
+                        RejectInput(userInput); break;
+                    }
+                case "taste":
+                    {
+                        if (playerController.locationManager.currentLocation.name == "the Office")
+                        {
+                            if (separatedInputWords[1] == "pouch")
+                            {
+                                log.Add("Why did you even think of licking a leather pouch? What were you trying to gain? Sorry, I'm just trying to make sense of what, to me, seems like an exceptionally odd thing to do.");
+                                break;
+                            }
+                            else if (separatedInputWords[1] == "powder")
+                            {
+                                log.Add("So apparently it was poisonous. You died.");
+                                playerController.Die();
+                                break;
+                            }
+                        }
+                        RejectInput(userInput); break;
+                    }
                 case "use": RejectInput("Use not implemented"); break;
                 default: RejectInput(userInput); break;
             }

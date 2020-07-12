@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum Direction
 {
@@ -91,6 +92,13 @@ public class PlayerController : MonoBehaviour
                 return 0;
             }
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Player Died");
+        displayTextController.inputField.enabled = false;
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive); 
     }
 
 }
