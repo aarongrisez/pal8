@@ -41,7 +41,7 @@ public class DisplayTextManager : MonoBehaviour
                     switch(separatedInputWords.Length){
                         case 2:
                             Direction dir;
-                            if(Enum.TryParse(typeof(Direction), separatedInputWords[1], true, out dir)){
+                            if(Enum.TryParse<Direction>(separatedInputWords[1], true, out dir)){
                                 playerController.HandleMove(dir);
                             } else {
                                 RejectInput("Bad Direction " + separatedInputWords[1]);
@@ -56,6 +56,10 @@ public class DisplayTextManager : MonoBehaviour
                     switch(separatedInputWords.Length){
                         case 1: 
                             log.Add(playerController.locationManager.currentLocation.description);
+                            log.Add("You can see the following items");
+                            log.Add(playerController.locationManager.ReportObjectsInRoom());
+                            log.Add("You can go to these locations");
+                            log.Add(playerController.locationManager.ReportAccessibleLocations());
                             break;
                         case 2:
                             var item = separatedInputWords[1];
