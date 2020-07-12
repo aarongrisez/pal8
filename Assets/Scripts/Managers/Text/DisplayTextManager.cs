@@ -47,8 +47,8 @@ public class DisplayTextManager : MonoBehaviour
                             var item = separatedInputWords[1];
                             var itemMatch = playerController.inventoryManager.GetObjectInInventoryByName(item) ??
                                             playerController.locationManager.GetObjectInRoomByName(item);
-                            log.Add("You look at the " + item);
-                            log.Add(item.description);
+                            log.Add("You look at the " + itemMatch.noun);
+                            log.Add(itemMatch.description);
                             break;
                     }
                     break;
