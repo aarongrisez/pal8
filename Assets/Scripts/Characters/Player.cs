@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Actor
 {
-    public int randMotionMax = 12;
+    public int randMotionMax = 14;
     public int randMotionMin = 8;
 
     private int xStepsRemaining = 0;
