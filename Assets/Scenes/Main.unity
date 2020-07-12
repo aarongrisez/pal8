@@ -974,6 +974,7 @@ Transform:
   m_LocalScale: {x: 1.5375, y: 1.6082288, z: 1}
   m_Children:
   - {fileID: 617356424}
+  - {fileID: 1334758995}
   m_Father: {fileID: 1975384756}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1019,6 +1020,7 @@ MonoBehaviour:
     see anything through the opening. The floor here is ever so slightly damp.
   objectsInRoom:
   - {fileID: 617356425}
+  - {fileID: 1334758996}
   accessibleLocations:
   - {fileID: 1802452633}
 --- !u!1 &762229799
@@ -1362,11 +1364,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  speed: 1000
+  speed: 500
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 825583111}
-  randMotionMax: 48
-  randMotionMin: 24
+  randMotionMax: 20
+  randMotionMin: 8
 --- !u!1 &867261318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,6 +1826,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1112453736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112453737}
+  - component: {fileID: 1112453740}
+  - component: {fileID: 1112453739}
+  - component: {fileID: 1112453738}
+  m_Layer: 0
+  m_Name: EtteTextController
+  m_TagString: EtteTextController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1112453737
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112453736}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1232374597}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 641.5, y: 67.66669}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1112453738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112453736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a22029ec4e71104ebfb052ba5fa22c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  etteTextManager: {fileID: 0}
+  etteTextObject: {fileID: 1232374598}
+--- !u!114 &1112453739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112453736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f316fd8a22c4b458861c6ab401a4f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1112453740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112453736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684d974e71430f44499b13ea3be723cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179434717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,7 +2121,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1112453737}
   m_Father: {fileID: 1784270026}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2084,9 +2163,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Hi! My Name is Ette, and I'm here to help you through this dungeon. It
-    looks like you're trying to make a potion. You might want to take a look around
-    for some REAGENTS.
+  m_Text: 'Hi! My Name is Ette, and I''m here to help you through this dungeon. I''m
+    programmed to respond to commands you type. Go ahead and try a few, like "move
+    up".
+
+
+    "look" can tell you about the room you''re in, and "look [item]" will
+    tell you about items in that room. Isn''t that cool?!'
 --- !u!222 &1232374599
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2281,6 +2364,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320410135}
   m_CullTransparentMesh: 0
+--- !u!1 &1334758994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334758995}
+  - component: {fileID: 1334758996}
+  m_Layer: 11
+  m_Name: Hole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334758995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334758994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 731640911}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334758996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334758994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: hole
+  description: You can't see anything through the hole in the wall. Maybe there's
+    another way to get to the chamber beyond it?
+  commands: []
 --- !u!1 &1351205348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3115,6 +3245,53 @@ MonoBehaviour:
   rows: 2
   cols: 2
   cellSize: {x: 619, y: 348}
+--- !u!1 &1778149446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778149447}
+  - component: {fileID: 1778149448}
+  m_Layer: 11
+  m_Name: Bed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1778149447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2083625895}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778149448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778149446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: bed
+  description: It looks like someone was sleeping in here when you woke up... I wonder
+    where they went...?
+  commands: []
 --- !u!1 &1778888015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,7 +3434,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 46.11, y: -52.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2109779946}
   m_Father: {fileID: 1975384756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3300,9 +3478,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: You are in the corner of a small room. The walls are all stone but
-    the floor and ceiling are just exposed dirt. There are doors to the south, east,
-    and west.
-  objectsInRoom: []
+    the floor and ceiling are just exposed dirt. There are doors to the right, left.
+    There's a hallway if you go down.
+  objectsInRoom:
+  - {fileID: 2109779947}
   accessibleLocations:
   - {fileID: 2095698675}
   - {fileID: 731640913}
@@ -4020,6 +4199,7 @@ Transform:
   m_LocalScale: {x: 1.9603125, y: 1.0414295, z: 1}
   m_Children:
   - {fileID: 2074137734}
+  - {fileID: 1778149447}
   m_Father: {fileID: 1975384756}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4079,7 +4259,7 @@ GameObject:
   - component: {fileID: 2095698675}
   - component: {fileID: 2095698674}
   m_Layer: 11
-  m_Name: Hallway
+  m_Name: the Hallway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4290,3 +4470,50 @@ MonoBehaviour:
   speed: 300
   changeDirectionProbability: 0.99
   rigidBody: {fileID: 2099765713}
+--- !u!1 &2109779945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2109779946}
+  - component: {fileID: 2109779947}
+  m_Layer: 11
+  m_Name: Vial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2109779946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109779945}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20.080002, y: -11.189999, z: 0}
+  m_LocalScale: {x: 1.5375, y: 1.6082289, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1802452631}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109779947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109779945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c814fa4de83c9f4b958b89852441ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noun: vial
+  description: It's filled with a viscous liquid, maybe oil? It could be useful for
+    concocting potions...
+  commands: []

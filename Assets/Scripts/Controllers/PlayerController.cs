@@ -24,10 +24,12 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public CommandManager commandManager;
 
     [HideInInspector] private DisplayTextController displayTextController;
+    private bool canMoveDownAndLeft = true;
 
 
     void Awake()
     {
+        Application.targetFrameRate = 30;
         locationManager = GetComponent<LocationManager>();
         inventoryManager = GetComponent<InventoryManager>();
         commandManager = GetComponent<CommandManager>();
@@ -73,8 +75,12 @@ public class PlayerController : MonoBehaviour
             }
             case Direction.Left:
             {
-                Debug.Log("Moving Left");
-                return player.SetMovementNegX();
+                if (canMoveDownAndLeft)
+                {
+                    Debug.Log("Moving Left");
+                    return player.SetMovementNegX();
+                }
+                return 0;
             }
             case Direction.Up:
             {
@@ -83,8 +89,12 @@ public class PlayerController : MonoBehaviour
             }
             case Direction.Down:
             {
-                Debug.Log("Moving Down");
-                return player.SetMovementNegY();
+                if (canMoveDownAndLeft)
+                {
+                    Debug.Log("Moving Down");
+                    return player.SetMovementNegY();
+                }
+                return 0;
             }
             default:
             {
@@ -99,6 +109,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player Died");
         displayTextController.inputField.enabled = false;
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive); 
+    }
+
+    public void RemoveDownAndLeftMovement()
+    {
+        canMoveDownAndLeft = false;
     }
 
 }

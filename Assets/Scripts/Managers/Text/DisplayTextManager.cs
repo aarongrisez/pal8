@@ -9,6 +9,7 @@ public class DisplayTextManager : MonoBehaviour
 
     [HideInInspector] private DisplayTextController displayTextController;
     [HideInInspector] private PlayerController playerController;
+    [HideInInspector] private EtteTextController etteTextController;
 
     private List<string> log = new List<string>();
 
@@ -16,11 +17,14 @@ public class DisplayTextManager : MonoBehaviour
     {
         GameObject displayTextControllerObject = GameObject.FindWithTag("DisplayTextController");
         GameObject playerControllerObject = GameObject.FindWithTag("PlayerController");
+        GameObject etteTextControllerObject = GameObject.FindWithTag("EtteTextController");
         displayTextController = displayTextControllerObject.GetComponent<DisplayTextController>();
         playerController = playerControllerObject.GetComponent<PlayerController>();
+        etteTextController = etteTextControllerObject.GetComponent<EtteTextController>();
     }
 
     private void RejectInput(string input){
+        etteTextController.DecreasePatience();
         log.Add("Unrecognized Input: " + input);
     }
 
@@ -28,7 +32,6 @@ public class DisplayTextManager : MonoBehaviour
     {
         if (userInput != "")
         {
-            log.Add(userInput);
             userInput = userInput.ToLower();
 
             char[] delimiterCharacters = { ' ' };
@@ -52,19 +55,33 @@ public class DisplayTextManager : MonoBehaviour
                 case "look":
                     switch(separatedInputWords.Length){
                         case 1: 
-                            log.Add(playerController.locationManager.currentLocation.description);
-                            log.Add("You can see the following items");
-                            log.Add(playerController.locationManager.ReportObjectsInRoom());
-                            log.Add("You can go to these locations");
-                            log.Add(playerController.locationManager.ReportAccessibleLocations());
+                            var output = playerController.locationManager.currentLocation.description;
+                            var items = playerController.locationManager.ReportObjectsInRoom();
+                            if (items != "")
+                            {
+                                output += " You can see\n" + items + "\n";
+                            }
+                            else
+                            {
+                                output += " ";
+                            }
+                            var exits = playerController.locationManager.ReportAccessibleLocations();
+                            if (exits != "")
+                            {
+                                output += "There are exits to\n" + exits;
+                            }
+                            log.Add(output);
                             break;
                         case 2:
                             var item = separatedInputWords[1];
+                            if (item == "inventory")
+                            {
+                                log.Add("The devs didn't have time to implement an inventory.");
+                            }
                             var itemMatch = playerController.locationManager.GetObjectInRoomByName(item);
                             if (itemMatch != null)
                             {
-                                log.Add("You look at the " + itemMatch.noun);
-                                log.Add(itemMatch.description);
+                                log.Add("You look at the " + itemMatch.noun + ". " + itemMatch.description);
                             }
                             else 
                             {
@@ -109,9 +126,11 @@ public class DisplayTextManager : MonoBehaviour
                         RejectInput(userInput); break;
                     }
                 case "use": RejectInput("Use not implemented"); break;
+                case "inventory": RejectInput("The devs didn't have time to implement an inventory"); break;
                 default: RejectInput(userInput); break;
             }
 
+            etteTextController.HandlePlayerCommand();
             displayTextController.InputComplete();
             displayTextController.DisplayText(FormatLog());
         }
@@ -119,13 +138,14 @@ public class DisplayTextManager : MonoBehaviour
 
     public void AddText(string newText)
     {
+        log.Clear();
         log.Add(newText);
         displayTextController.DisplayText(FormatLog());
     }
 
     public string FormatLog()
     {
-        return string.Join("\n", log.ToArray());
+        return string.Join("\n\n", log.ToArray());
     }
 
 }
